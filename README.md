@@ -67,6 +67,51 @@ Colors and fonts live in `src/styles/global.css` as CSS variables.
 
 ## Deploy setup (one-time)
 
-1. Create a GitHub repo on **Louella's account**, add Dad as a collaborator, push this project.
-2. On [Netlify](https://app.netlify.com): "Add new site → Import an existing project", authorize the Netlify GitHub app on her account, pick the repo. Build settings are read from `netlify.toml`.
-3. Domain settings → add `louella.art`, follow the DNS instructions at the registrar.
+### 1. Create the repo on Louella's account (her, in a browser)
+
+- Log into github.com as Louella, go to https://github.com/new
+- Repository name: `louella.art` · visibility: **Public**
+- Leave every "initialize" checkbox **unchecked** (no README, no .gitignore,
+  no license) — we're pushing an existing project into an empty repo.
+
+### 2. Add Dad as collaborator (her)
+
+- In the new repo: **Settings → Collaborators → Add people** → `mattcflynn`
+- Dad accepts the invite (email link, or https://github.com/notifications)
+
+### 3. Account hygiene while she's logged in
+
+- **Settings → Password and authentication** → enable two-factor auth
+- **Settings → Emails** → check **"Keep my email addresses private"** and
+  **"Block command line pushes that expose my email"** — keeps her email out
+  of commit metadata, consistent with the first-name-only rule.
+
+### 4. Push this project (Dad, in this folder)
+
+```sh
+git remote add origin https://github.com/HER-USERNAME/louella.art.git
+git branch -M main
+git push -u origin main
+```
+
+(Or ask Claude — the commit is already made.)
+
+### 5. Netlify
+
+- Go to https://app.netlify.com → **Sign up with GitHub, using her account**
+  (the site is hers; keeps ownership consistent)
+- **Add new site → Import an existing project → GitHub** → it will prompt to
+  install the Netlify app on her account → grant it access to the
+  `louella.art` repo
+- Build settings auto-fill from `netlify.toml` — just click **Deploy**.
+  In ~2 minutes the placeholder site is live at a `*.netlify.app` URL.
+
+### 6. Point the domain
+
+- In Netlify: **Domain management → Add a domain → `louella.art`**
+- Follow Netlify's DNS instructions at the registrar. Simplest: switch the
+  domain's nameservers to Netlify's four. Alternative: an A record on the
+  apex + a `www` CNAME. HTTPS provisions itself a few minutes after DNS
+  resolves.
+
+After this, deploys are automatic: every push to `main` rebuilds the site.
