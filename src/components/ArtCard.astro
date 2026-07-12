@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  piece: CollectionEntry<'sketchbook'>;
+}
+
+const { piece } = Astro.props;
+const { title, date, medium, image, alt } = piece.data;
+const dateLabel = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<figure class="card">
+  <Image src={image} alt={alt} widths={[400, 800]} sizes="(max-width: 600px) 90vw, 400px" />
+  <figcaption>
+    <span class="hand">{title}</span>
+    <span class="meta">{dateLabel}{medium && ` · ${medium}`}</span>
+  </figcaption>
+</figure>
+
+<style>
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.6rem;
+  }
+
+  figcaption .hand {
+    font-size: 1.15rem;
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+
+const novels = (await getCollection('novels')).sort(
+  (a, b) => b.data.year - a.data.year
+);
+---
+
+<Base
+  title="Graphic Novels — Louella"
+  description="Hand-drawn graphic novels by Louella, ready to read online."
+>
+  <h1>The Shelf</h1>
+  <p>Every story here is drawn by hand, panel by panel. Pick one up.</p>
+
+  <div class="grid">
+    {
+      novels.map((novel) => {
+        const slug = novel.id.split('/')[0];
+        return (
+          <a class="card novel" href={`/novels/${slug}/`}>
+            <Image
+              src={novel.data.cover}
+              alt={novel.data.coverAlt}
+              widths={[400, 800]}
+              sizes="(max-width: 600px) 90vw, 400px"
+            />
+            <span class="hand title">{novel.data.title}</span>
+            <span class="meta">
+              {novel.data.year} · {novel.data.status}
+            </span>
+            <p class="blurb">{novel.data.blurb}</p>
+          </a>
+        );
+      })
+    }
+  </div>
+</Base>
+
+<style>
+  .novel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    padding-top: 0.5rem;
+  }
+
+  .blurb {
+    margin: 0.2rem 0 0;
+    font-size: 0.95rem;
+  }
+</style>

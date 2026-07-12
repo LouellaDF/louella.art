@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import divider from '../assets/handdrawn/divider.svg';
+---
+
+<Base
+  title="About — Louella"
+  description="About Louella: aspiring animator and graphic novelist."
+>
+  <article>
+    <h1>About me</h1>
+    <!-- Placeholder bio — Louella should rewrite this in her own voice. -->
+    <p>
+      I'm Louella. I'm 13, and I've been drawing for as long as I can remember.
+      I make graphic novels — writing the stories, drawing the panels,
+      lettering the words — and I fill a sketchbook page every single day.
+    </p>
+    <p>
+      My dream is to work at Pixar as an animator. Right now I'm studying how
+      my favorite artists tell stories with pictures, and practicing. A lot.
+    </p>
+
+    <img src={divider.src} alt="" width="220" height="12" />
+
+    <h2>Say hello</h2>
+    <p>
+      Want to get in touch about my work? Email
+      <a href="mailto:mattcflynn@gmail.com">my dad</a> — he manages this site
+      with me.
+    </p>
+  </article>
+</Base>
+
+<style>
+  article {
+    max-width: 40rem;
+  }
+
+  img {
+    margin: 2rem 0;
+  }
+</style>

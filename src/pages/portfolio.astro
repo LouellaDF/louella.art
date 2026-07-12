@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+
+// Curated set: sketchbook pieces flagged `portfolio: true` in their yaml.
+const selected = (await getCollection('sketchbook'))
+  .filter((piece) => piece.data.portfolio)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base
+  title="Portfolio — Louella"
+  description="Selected work by Louella: the best of her graphic novels and daily artwork."
+>
+  <h1>Selected Work</h1>
+  <p class="statement">
+    <!-- Artist statement — Louella writes this in her own words. -->
+    I'm a 13-year-old artist who tells stories in panels. I draw every day,
+    mostly in ink, and I'm working toward a future in animation.
+  </p>
+
+  <div class="pieces">
+    {
+      selected.map((piece) => (
+        <figure>
+          <Image
+            src={piece.data.image}
+            alt={piece.data.alt}
+            widths={[800, 1400]}
+            sizes="(max-width: 900px) 96vw, 860px"
+          />
+          <figcaption>
+            <span class="hand">{piece.data.title}</span>
+            <span class="meta">
+              {piece.data.medium && `${piece.data.medium}, `}
+              {piece.data.date.getFullYear()}
+            </span>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .statement {
+    max-width: 38rem;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pieces {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 860px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+    padding-top: 0.5rem;
+  }
+
+  figcaption .hand {
+    font-size: 1.25rem;
+  }
+</style>

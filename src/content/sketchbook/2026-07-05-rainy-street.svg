@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#fdfaf2"/>
+  <rect x="30" y="30" width="840" height="640" fill="none" stroke="#2c2926" stroke-width="4" rx="14"/>
+  <g stroke="#6b6459" stroke-width="3" stroke-linecap="round">
+    <path d="M250 150 L 220 230"/>
+    <path d="M400 130 L 370 210"/>
+    <path d="M560 160 L 530 240"/>
+    <path d="M690 140 L 660 220"/>
+  </g>
+  <path d="M150 480 L 750 480" stroke="#2c2926" stroke-width="4" stroke-linecap="round"/>
+  <rect x="320" y="330" width="120" height="150" fill="none" stroke="#d95c3f" stroke-width="4" rx="6"/>
+  <text x="450" y="580" text-anchor="middle" font-family="cursive" font-size="40" fill="#6b6459">rainy street (placeholder)</text>
+</svg>

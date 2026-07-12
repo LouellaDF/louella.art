@@ -1,0 +1,33 @@
+# Block known AI-training crawlers (does not affect normal search indexing)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# Everyone else (Google, Bing, etc.) is welcome
+User-agent: *
+Allow: /
+
+Sitemap: https://louella.art/sitemap-index.xml

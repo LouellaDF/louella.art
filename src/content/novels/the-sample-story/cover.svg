@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+  <rect width="800" height="1200" fill="#fdfaf2"/>
+  <rect x="35" y="35" width="730" height="1130" fill="none" stroke="#2c2926" stroke-width="5" rx="18"/>
+  <path d="M120 340 C 250 300, 550 300, 680 340" stroke="#d95c3f" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <text x="400" y="480" text-anchor="middle" font-family="cursive" font-size="72" fill="#2c2926">The Sample</text>
+  <text x="400" y="570" text-anchor="middle" font-family="cursive" font-size="72" fill="#2c2926">Story</text>
+  <path d="M280 640 C 330 620, 470 660, 520 640" stroke="#2c2926" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="400" y="1050" text-anchor="middle" font-family="cursive" font-size="36" fill="#6b6459">a graphic novel by Louella</text>
+  <text x="400" y="820" text-anchor="middle" font-family="cursive" font-size="28" fill="#d95c3f">(placeholder — replace cover.svg with a real scan)</text>
+</svg>

@@ -1,0 +1,10 @@
+[build]
+command = "npm run build"
+publish = "dist"
+
+# Belt-and-suspenders alongside robots.txt and the meta tag
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Robots-Tag = "noai, noimageai"

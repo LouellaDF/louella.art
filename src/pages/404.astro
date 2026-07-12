@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import splat from '../assets/handdrawn/splat.svg';
+---
+
+<Base
+  title="Lost the plot — Louella"
+  description="Page not found."
+>
+  <div class="lost">
+    <img src={splat.src} alt="" width="90" height="90" />
+    <h1>This page wandered off the panel.</h1>
+    <p>Maybe it got erased. Let's get you back to the story.</p>
+    <a class="btn" href="/">Back to the start</a>
+  </div>
+</Base>
+
+<style>
+  .lost {
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  img {
+    margin: 0 auto 1rem;
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ArtCard from '../components/ArtCard.astro';
+import splat from '../assets/handdrawn/splat.svg';
+
+const recent = (await getCollection('sketchbook'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const novels = await getCollection('novels');
+---
+
+<Base
+  title="Louella — Animator & Graphic Novelist"
+  description="The portfolio of Louella: hand-drawn graphic novels, daily sketchbook art, and animation."
+>
+  <section class="hero">
+    <img class="splat" src={splat.src} alt="" width="90" height="90" />
+    <h1>Hi, I'm Louella.</h1>
+    <p class="tagline">
+      I draw graphic novels and make art every single day. One day I'll make
+      things move at Pixar — for now, you can read my stories right here.
+    </p>
+    <div class="cta">
+      <a class="btn" href="/novels/">Read my novels</a>
+      <a class="btn" href="/sketchbook/">Open the sketchbook</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fresh from the sketchbook</h2>
+    <div class="grid">
+      {recent.map((piece) => <ArtCard piece={piece} />)}
+    </div>
+    <p><a href="/sketchbook/">See everything →</a></p>
+  </section>
+
+  <section>
+    <h2>On the shelf</h2>
+    <div class="grid">
+      {
+        novels.map((novel) => {
+          const slug = novel.id.split('/')[0];
+          return (
+            <a class="card shelf-item" href={`/novels/${slug}/`}>
+              <Image
+                src={novel.data.cover}
+                alt={novel.data.coverAlt}
+                widths={[400, 800]}
+                sizes="(max-width: 600px) 90vw, 400px"
+              />
+              <span class="hand">{novel.data.title}</span>
+              <span class="meta">
+                {novel.data.year} · {novel.data.status}
+              </span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    margin: 0.5rem 0;
+  }
+
+  .tagline {
+    max-width: 34rem;
+    margin: 0 auto 1.5rem;
+    font-size: 1.15rem;
+  }
+
+  .splat {
+    margin: 0 auto;
+  }
+
+  .cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  .shelf-item {
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .shelf-item .hand {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+  }
+</style>

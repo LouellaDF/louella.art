@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ArtCard from '../components/ArtCard.astro';
+
+const pieces = (await getCollection('sketchbook')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Base
+  title="Sketchbook — Louella"
+  description="Louella's daily sketchbook: new hand-drawn art, every day."
+>
+  <h1>The Sketchbook</h1>
+  <p>I draw every day. This is where it all lands, newest first.</p>
+
+  <div class="grid">
+    {pieces.map((piece) => <ArtCard piece={piece} />)}
+  </div>
+</Base>

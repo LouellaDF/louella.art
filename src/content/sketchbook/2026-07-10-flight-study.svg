@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#fdfaf2"/>
+  <rect x="30" y="30" width="840" height="640" fill="none" stroke="#2c2926" stroke-width="4" rx="14"/>
+  <path d="M150 400 C 250 250, 350 250, 420 340 C 480 420, 560 420, 620 340 C 670 280, 720 270, 760 300" stroke="#2c2926" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="1 14"/>
+  <path d="M700 250 l 40 -20 l -10 45 z" fill="#d95c3f"/>
+  <text x="450" y="560" text-anchor="middle" font-family="cursive" font-size="40" fill="#6b6459">flight study (placeholder)</text>
+</svg>

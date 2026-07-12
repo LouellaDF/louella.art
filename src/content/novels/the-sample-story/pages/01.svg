@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+  <rect width="800" height="1200" fill="#fdfaf2"/>
+  <rect x="40" y="40" width="720" height="500" fill="none" stroke="#2c2926" stroke-width="4" rx="10"/>
+  <rect x="40" y="580" width="345" height="580" fill="none" stroke="#2c2926" stroke-width="4" rx="10"/>
+  <rect x="415" y="580" width="345" height="580" fill="none" stroke="#2c2926" stroke-width="4" rx="10"/>
+  <text x="400" y="300" text-anchor="middle" font-family="cursive" font-size="44" fill="#6b6459">page 1 — a wide panel</text>
+  <text x="212" y="880" text-anchor="middle" font-family="cursive" font-size="30" fill="#6b6459">panel 2</text>
+  <text x="587" y="880" text-anchor="middle" font-family="cursive" font-size="30" fill="#6b6459">panel 3</text>
+</svg>

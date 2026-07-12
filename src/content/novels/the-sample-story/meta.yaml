@@ -1,0 +1,8 @@
+title: The Sample Story
+year: 2026
+blurb: >-
+  A placeholder graphic novel that shows how the shelf works. Replace this
+  folder with a real story — scans go in pages/, named 01.jpg, 02.jpg, ...
+status: ongoing
+cover: ./cover.svg
+coverAlt: Placeholder cover with a hand-drawn frame and the title "The Sample Story"

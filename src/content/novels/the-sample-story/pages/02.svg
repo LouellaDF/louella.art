@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+  <rect width="800" height="1200" fill="#fdfaf2"/>
+  <rect x="40" y="40" width="345" height="550" fill="none" stroke="#2c2926" stroke-width="4" rx="10"/>
+  <rect x="415" y="40" width="345" height="550" fill="none" stroke="#2c2926" stroke-width="4" rx="10"/>
+  <rect x="40" y="630" width="720" height="530" fill="none" stroke="#2c2926" stroke-width="4" rx="10"/>
+  <text x="400" y="920" text-anchor="middle" font-family="cursive" font-size="44" fill="#6b6459">page 2 — big finish panel</text>
+  <ellipse cx="212" cy="250" rx="120" ry="70" fill="none" stroke="#d95c3f" stroke-width="3"/>
+  <text x="212" y="260" text-anchor="middle" font-family="cursive" font-size="24" fill="#d95c3f">speech!</text>
+</svg>
