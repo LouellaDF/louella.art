@@ -6,6 +6,8 @@ import ArtCard from '../components/ArtCard.astro';
 const pieces = (await getCollection('sketchbook')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+
+const tags = [...new Set(pieces.flatMap((piece) => piece.data.tags))].sort();
 ---
 
 <Base
@@ -15,7 +17,77 @@ const pieces = (await getCollection('sketchbook')).sort(
   <h1>The Sketchbook</h1>
   <p>I draw every day. This is where it all lands, newest first.</p>
 
+  {tags.length > 0 && (
+    <div class="tags" role="group" aria-label="Filter by tag">
+      <button class="tag is-active" data-tag="" aria-pressed="true">all</button>
+      {tags.map((tag) => (
+        <button class="tag" data-tag={tag} aria-pressed="false">{tag}</button>
+      ))}
+    </div>
+  )}
+
   <div class="grid">
     {pieces.map((piece) => <ArtCard piece={piece} />)}
   </div>
 </Base>
+
+<style>
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .tag {
+    font-family: var(--font-hand);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: white;
+    border: var(--line);
+    border-radius: var(--wobble-sm);
+    padding: 0.25rem 0.9rem;
+    cursor: pointer;
+  }
+
+  .tag:hover {
+    background: var(--paper-deep);
+  }
+
+  .tag.is-active {
+    background: var(--accent);
+    color: var(--paper);
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.tags .tag');
+  const cards = document.querySelectorAll<HTMLElement>('.grid [data-tags]');
+
+  function apply(tag: string) {
+    for (const btn of buttons) {
+      const active = (btn.dataset.tag ?? '') === tag;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    }
+    for (const card of cards) {
+      card.hidden = tag !== '' && !(card.dataset.tags ?? '').split(' ').includes(tag);
+    }
+  }
+
+  for (const btn of buttons) {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag ?? '';
+      history.replaceState(null, '', tag ? `#${encodeURIComponent(tag)}` : location.pathname);
+      apply(tag);
+    });
+  }
+
+  function applyFromHash() {
+    const tag = decodeURIComponent(location.hash.slice(1));
+    apply([...buttons].some((btn) => btn.dataset.tag === tag) ? tag : '');
+  }
+
+  window.addEventListener('hashchange', applyFromHash);
+  if (location.hash) applyFromHash();
+</script>

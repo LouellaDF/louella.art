@@ -7,15 +7,16 @@ interface Props {
 }
 
 const { piece } = Astro.props;
-const { title, date, medium, image, alt } = piece.data;
+const { title, date, medium, image, alt, tags } = piece.data;
 const dateLabel = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 });
 ---
 
-<figure class="card">
+<figure class="card" data-tags={tags.join(' ')}>
   <Image src={image} alt={alt} widths={[400, 800]} sizes="(max-width: 600px) 90vw, 400px" />
   <figcaption>
     <span class="hand">{title}</span>

@@ -60,7 +60,7 @@ Colors and fonts live in `src/styles/global.css` as CSS variables.
 ## Roadmap
 
 - [x] Phase 1 — scaffold, content collections, base pages, SEO/anti-scraping, Netlify config
-- [ ] Phase 2 — import the real back catalog, tag filtering on the Sketchbook
+- [ ] Phase 2 — import the real back catalog; ~~tag filtering on the Sketchbook~~ ✓
 - [ ] Phase 3 — page-turn reader (keyboard/swipe, spreads, resume position)
 - [ ] Phase 4 — Keystatic admin (`/admin`) so Louella can publish from the browser
 - [ ] Phase 5 — Portfolio PDF export, hand-drawn skin slots, handwriting font (Calligraphr)
