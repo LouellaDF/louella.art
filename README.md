@@ -64,6 +64,7 @@ Colors and fonts live in `src/styles/global.css` as CSS variables.
 - [ ] Phase 3 — page-turn reader (keyboard/swipe, spreads, resume position)
 - [ ] Phase 4 — Keystatic admin (`/admin`) so Louella can publish from the browser
 - [ ] Phase 5 — Portfolio PDF export, hand-drawn skin slots, handwriting font (Calligraphr)
+- [ ] Phase 6 — animation support: short video loops (MP4/WebM) as sketchbook/portfolio pieces, with poster frames and the same anti-scraping treatment as images
 
 ## Deploy setup (one-time)
 
